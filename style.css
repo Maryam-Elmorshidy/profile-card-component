@@ -1,0 +1,253 @@
+/* root */
+:root{
+   
+    --color-border: black;
+    --color-white: white;
+    --color-black: rgb(0, 0, 0);
+    --transition-timing: 0.3s;
+}
+/* End root */
+/* reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  a {
+    color: inherit;
+    display: inline-block;
+  }
+  
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border: 0;
+  }
+  
+  ul,
+  ol {
+    list-style: none;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    font-size: 1.6rem;
+    font-family: "Courier New", Courier, monospace;
+  }
+  
+/* End reset */
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* background-color: rebeccapurple; */
+    background-color:black;
+    background-image:
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+      
+
+}
+.container:has(.lights__input:checked) .lights{
+    opacity: 1;
+    visibility: visible;
+}
+.lights__control{
+    display: flex;
+    top: 2rem;
+    position: absolute;
+    gap: 1rem;
+    align-items: center;
+    color: var(--color-white);
+    z-index: 2;
+}
+.lights__label{
+    width: 4.2rem;
+    height: 2.2rem;
+    background-color: var(--color-white);
+    transition: var(--transition-timing);
+    border-radius: 1.5rem;
+    cursor: pointer;
+    padding: 0.3rem 0.4rem;
+}
+.lights__label::after{
+    content: "";
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    background-color: var(--color-black);
+    display: block;
+    transition: var(--transition-timing);
+}
+.lights__input{
+    display: none;
+    
+}
+
+.lights__input:checked + .lights__label{
+    background-color: hsla(5, 53%, 63%, 0.742);
+
+} 
+.lights__input:checked + .lights__label::after{
+    background-color: var(--color-white);
+    transform: translateX(2rem);
+    
+}
+
+.lights{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-timing);
+    z-index: 1;
+}
+
+@keyframes party{
+    0% {
+        fill: white;
+    }
+    25% {
+        fill: #FFA1A1;
+    }
+    50% {
+        fill: #5d5656;
+    }
+    75% {
+        fill: #FFF281;
+    }
+}
+.light_second{
+    animation: party 0.7s infinite alternate;
+}
+.light_first{
+    animation: party 0.7s infinite alternate-reverse;
+}
+
+
+.card{
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    border-radius: 2rem;
+    min-width: 45rem;
+    box-shadow: 0 0 0.8rem var(--color-white);
+    background-color: var(--color-white);
+    overflow: hidden;/* mean that card can control with all items in it to can implement border-radius*/
+}
+.first{
+    background-color: hsl(34, 53%, 82%);
+    background-image: repeating-linear-gradient(45deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px, hsla(197, 62%, 11%, 0.5) 10px,
+    hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.5) 35px, hsla(5, 53%, 63%, 0.5) 40px,
+    hsla(197, 62%, 11%, 0.5) 40px, hsla(197, 62%, 11%, 0.5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,
+    hsla(5, 53%, 63%, 0.5) 60px, hsla(5, 53%, 63%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 80px,
+    hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.5) 90px, hsla(5, 53%, 63%, 0.5) 110px,
+    hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 120px, hsla(197, 62%, 11%, 0.5) 120px, hsla(197, 62%, 11%, 0.5) 140px
+    ),
+    repeating-linear-gradient(135deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px, hsla(197, 62%, 11%, 0.5) 10px,
+    hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.5) 35px, hsla(5, 53%, 63%, 0.5) 40px,
+    hsla(197, 62%, 11%, 0.5) 40px, hsla(197, 62%, 11%, 0.5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,
+    hsla(5, 53%, 63%, 0.5) 60px, hsla(5, 53%, 63%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 80px,
+    hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.5) 90px, hsla(5, 53%, 63%, 0.5) 110px,
+    hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 140px, hsla(197, 62%, 11%, 0.5) 140px, hsla(197, 62%, 11%, 0.5) 160px
+    );
+    height: 10rem;
+}
+
+.middle{
+    text-align: center;
+    /* margin: 0 auto; */
+    margin-top: -6rem;
+    z-index: 1;
+    padding-bottom: 3rem;
+    /* height: 10rem; */
+    border-bottom: 0.01rem solid var(--color-border); 
+}
+.pic{
+    height: 12rem;
+    width: 12rem;
+    border-radius: 50%;
+    border: 0.4rem solid var(--color-white);
+}
+.name{
+    font-size: 2.2rem;
+}
+.info{
+    font-size: 1.6rem;
+}
+.last{
+    height: 10rem;
+    display: flex;
+    flex-direction: row;
+
+}
+.column{
+    flex: 1;
+    text-align: center;
+    height: 10rem;
+    padding: 1.4rem 1.5rem;
+}
+.column:nth-child(2){
+    border-left: 0.01rem solid var(--color-border);
+    border-right: 0.01rem solid var(--color-border);
+    /* padding: 0 1rem; */
+}
+.column__name{
+    font-size: 1.3rem;
+    margin-top: 0.7rem;
+}
+.column__pic{
+    text-align: center;
+    height: 2rem;
+    width: 2rem;
+}
+.column__pic:hover{
+    transition: var(--transition-timing);
+    transform: scale(1.5);
+}
+/* .contact__socials{
+    transition: var(--transition-timing);
+}
+.contact__social:hover{
+    transform: scale(1.2);
+} */
+/* Responsive */
+@media (max-width: 500px){
+    .card{
+        min-width: 30rem;
+         }
+
+    .last{
+        height: auto;
+        flex-direction: column;
+        
+        }
+
+    .column:nth-child(2){
+        border-top: 0.01rem solid var(--color-border);
+        border-bottom: 0.01rem solid var(--color-border);
+        border-left: 0;
+        border-right: 0;
+        
+            
+        }
+      
+}
+
+
